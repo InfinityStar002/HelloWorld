@@ -1,4 +1,3 @@
-print("Hello World..!");
 import sys
 import time
 
@@ -17,15 +16,20 @@ def typewriter(text, delay=0.1, color=RESET):
     print()  # Move to the next line
 
 if __name__ == "__main__":
-    # Animation: "Hello World..!" with a typewriter effect and color cycling
     colors = [RED, YELLOW, GREEN, CYAN]
     message = "Hello World..!"
-    for i, char in enumerate(message):
-        color = colors[i % len(colors)]
-        sys.stdout.write(color + char + RESET)
-        sys.stdout.flush()
-        time.sleep(0.15)
-    print()
-    
-    # Add an additional animated message
-    typewriter("Welcome to the animated Hello World!", delay=0.06, color=CYAN)
+    repeat_count = 5  # Number of times to repeat the animation
+
+    for _ in range(repeat_count):
+        # Animation: "Hello World..!" with a typewriter effect and color cycling
+        for i, char in enumerate(message):
+            color = colors[i % len(colors)]
+            sys.stdout.write(color + char + RESET)
+            sys.stdout.flush()
+            time.sleep(0.15)
+        print()
+        
+        # Add an additional animated message
+        typewriter("Welcome to the animated Hello World!", delay=0.06, color=CYAN)
+        
+        time.sleep(0.5)  # Optional: small pause between loops
